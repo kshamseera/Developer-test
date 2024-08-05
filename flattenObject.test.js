@@ -1,4 +1,4 @@
-const flattenData = require('./flattenObject');
+const flattenObject = require('./flattenObject');
 
 test('flattens object with redundant root elements', () => {
   const input = {
@@ -19,7 +19,7 @@ test('flattens object with redundant root elements', () => {
     ]
   };
 
-  expect(flattenData(input)).toEqual(expected);
+  expect(flattenObject(input)).toEqual(expected);
   
 });
 
@@ -46,7 +46,7 @@ test('handles deeply nested objects', () => {
     }
   };
 
-  expect(flattenData(input)).toEqual(expected);
+  expect(flattenObject(input)).toEqual(expected);
 });
 
 test('handles multiple arrays with redundant root elements', () => {
@@ -72,7 +72,7 @@ test('handles multiple arrays with redundant root elements', () => {
     ]
   };
 
-  expect(flattenData(input)).toEqual(expected);
+  expect(flattenObject(input)).toEqual(expected);
 });
 
 test('does not modify objects without redundant root elements', () => {
@@ -92,7 +92,7 @@ test('does not modify objects without redundant root elements', () => {
     ]
   };
 
-  expect(flattenData(input)).toEqual(expected);
+  expect(flattenObject(input)).toEqual(expected);
 });
 
 
