@@ -1,6 +1,6 @@
-function flattenData(data) {
+function flattenObject(data) {
   if (Array.isArray(data)) {
-    return data.map(flattenData);
+    return data.map(flattenObject);
   } else if (typeof data === "object" && data !== null) {
     const result = {};
     for (const key in data) {
@@ -9,13 +9,13 @@ function flattenData(data) {
           if (typeof item === "object" && item !== null) {
             const singularKey = Object.keys(item)[0];
             if (singularKey && singularKey === key.slice(0, -1)) {
-              return flattenData(item[singularKey]);
+              return flattenObject(item[singularKey]);
             }
           }
-          return flattenData(item);
+          return flattenObject(item);
         });
       } else {
-        result[key] = flattenData(data[key]);
+        result[key] = flattenObject(data[key]);
       }
     }
     return result;
@@ -23,4 +23,4 @@ function flattenData(data) {
   return data;
 }
 
-module.exports = flattenData;
+module.exports = flattenObject;
