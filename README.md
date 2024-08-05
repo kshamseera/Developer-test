@@ -40,5 +40,5 @@ Your task is to provide a solution in the language of your choice that given an 
 
 ### How to run the test file
 
-npm install --save-dev jest
-npm test
+* npm install --save-dev jest
+* npm test
